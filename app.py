@@ -59,7 +59,7 @@ def findminmax():
     text = nameofstock +"\nHighest Value of Stock :"+str(alltimehigh)+"\nLowest Value of Stock :" +str(alltimelow)
     return text
 
-# if __name__ == "__main__":
-#  app.run(debug=True,port=8000)
+if __name__ == "__main__":
+ app.run(debug=True,port=8000)
 
 
