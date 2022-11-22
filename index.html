@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+ 
+</head>
+
+<body class="bodyclass">
+  
+    <label> Select Stocks </label>  
+    <select id="form">  
+    <option value = "BHARTIARTL">BHARTIARTL</option>
+    <option value = "TATASTEEL">TATASTEEL</option>
+    <option value = "TITAN">TITAN</option>
+    <option value = "BRITANNIA">BRITANNIA</option>
+    <option value = "MM">MM</option>
+    <option value = "COALINDIA">COALINDIA</option>
+    <option value = "JSWSTEEL">JSWSTEEL</option>
+    <option value = "NESTLEIND">NESTLEIND</option>
+    <option value = "ICICIBANK">ICICIBANK</option>
+    <option value = "MARUTI">MARUTI</option>
+    <option value = "ULTRACEMCO">ULTRACEMCO</option>
+    <option value = "WIPRO">WIPRO</option>
+    <option value = "NIFTY50_all">NIFTY50_all</option>
+    <option value = "NTPC">NTPC</option>
+    <option value = "VEDL">VEDL</option>
+    <option value = "ASIANPAINT">ASIANPAINT</option>
+    <option value = "ONGC">ONGC</option>
+    <option value = "IOC">IOC</option>
+    <option value = "DRREDDY">DRREDDY</option>
+    <option value = "TECHM">TECHM</option>
+    <option value = "TCS">TCS</option>
+    <option value = "SUNPHARMA">SUNPHARMA</option>
+    <option value = "HCLTECH">HCLTECH</option>
+    <option value = "HDFC">HDFC</option>
+    <option value = "KOTAKBANK">KOTAKBANK</option>
+    <option value = "ZEEL">ZEEL</option>
+    <option value = "AXISBANK">AXISBANK</option>
+    <option value = "EICHERMOT">EICHERMOT</option>
+    <option value = "HDFCBANK">HDFCBANK</option>
+    <option value = "INFRATEL">INFRATEL</option>
+    <option value = "TATAMOTORS">TATAMOTORS</option>
+    <option value = "HEROMOTOCO">HEROMOTOCO</option>
+    <option value = "UPL">UPL</option>
+    <option value = "stock_metadata">stock_metadata</option>
+    <option value = "CIPLA">CIPLA</option>
+    <option value = "BAJAJ-AUTO">BAJAJ-AUTO</option>
+    <option value = "ITC">ITC</option>
+    <option value = "GAIL">GAIL</option>
+    <option value = "POWERGRID">POWERGRID</option>
+    <option value = "HINDALCO">HINDALCO</option>
+    <option value = "BPCL">BPCL</option>
+    <option value = "LT">LT</option>
+    <option value = "ADANIPORTS">ADANIPORTS</option>
+    <option value = "HINDUNILVR">HINDUNILVR</option>
+    <option value = "GRASIM">GRASIM</option>
+    <option value = "RELIANCE">RELIANCE</option>
+    <option value = "INFY">INFY</option>
+    <option value = "SHREECEM">SHREECEM</option>
+    <option value = "SBIN">SBIN</option>
+    <option value = "INDUSINDBK">INDUSINDBK</option>
+    <option value = "BAJAJFINSV">BAJAJFINSV</option>
+    <option value = "BAJFINANCE">BAJFINANCE</option>
+    
+
+    </select>  <br>
+    <label> Start Date </label>
+    <input type="date" id="startdate">
+    <br>
+    <label> End Date </label>
+    <input type="date" id="enddate">
+    <br>
+    <div class="textareabackgroundclass">
+  
+        <textarea id="highlowval" name = "highlowval" class="textareaclass" id="field"  rows="15" cols="100">{{text}}</textarea>
+       
+    </div> 
+    <br>
+    <button type='button' class="btn btn-primary btn-lg form-horizontal" onClick='submit()' >SUBMIT</button>
+    
+
+<script type="text/javascript">
+  function submit() {
+    const URL = '/findminmax'
+    const xmlhttprequest = new XMLHttpRequest();
+    var nameofstock = document.getElementById("form").value;
+    var startdate = document.getElementById("startdate").value;
+    var endate = document.getElementById("enddate").value;
+
+    data = nameofstock + "||"+ startdate +"||"+ endate
+
+    xmlhttprequest.onreadystatechange = function() {
+    if (xmlhttprequest.readyState == XMLHttpRequest.DONE) {
+        console.log(xmlhttprequest.responseText.getElementById);
+        document.getElementById("highlowval").innerHTML = xmlhttprequest.responseText;
+      
+    }
+}
+    xmlhttprequest.open('POST', URL);
+    xmlhttprequest.send(data);   
+    console.log(xmlhttprequest.response);
+    
+}
+
+  </script> 
+</body>
+
+</html>
